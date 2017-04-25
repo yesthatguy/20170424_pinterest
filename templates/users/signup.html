@@ -5,9 +5,30 @@
 {% block content %}
 Signup!
 
+<h1>Paragraph:</h1>
 <form action="/your-name/" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" />
+</form>
+
+
+<h1>Table:</h1>
+<table>
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+    {{ form.as_table }}
+    <tr><td></td><td><input type="submit" value="Submit" /></td></tr>
+</form>
+</table>
+
+<h1>List:</h1>
+
+<form action="/your-name/" method="post">
+    {% csrf_token %}
+		<ul>
+    {{ form.as_ul }}
+		</ul>
     <input type="submit" value="Submit" />
 </form>
 {% endblock %}
